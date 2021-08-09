@@ -12,12 +12,12 @@ class Employees:
     df=pd.read_excel('out2.xlsx')
 
 
-    # cur.execute("""Create table  some_table( empname varchar(250),
-    #                                         Dname varchar(250),
-    #                                         empno numeric,
-    #                                         tot_comp numeric, months Integer);""")
-    #
-    # conn.commit()
+    cur.execute("""Create table  some_table( empname varchar(250),
+                                           Dname varchar(250),
+                                             empno numeric,
+                                         tot_comp numeric, months Integer);""")
+
+    conn.commit()
     cur.execute(
         "select emp.ename, dept.dname, emp.empno ,(case when enddate is not null then ((enddate-startdate+1)/30)*jobhist.sal else ((current_date-startdate+1)/30)*jobhist.sal end)as Total_Compensation,(case when enddate is not null then ((enddate-startdate+1)/30) else ((current_date-startdate+1)/30) end)as Months_Spent from jobhist, dept, emp where jobhist.deptno=dept.deptno and jobhist.empno=emp.empno")
 
