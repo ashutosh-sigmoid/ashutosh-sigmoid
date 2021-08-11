@@ -17,6 +17,7 @@ class employees:
             password="Hello@123")
             cursor = conn.cursor()
             # connection established
+            # You could have used right join inplace of cross join for this one
             script = """
                     select dept.deptno, dept_name, sum(total_compensation) from Compensation_Employee, dept
                     where Compensation_Employee.dept_name=dept.dname
