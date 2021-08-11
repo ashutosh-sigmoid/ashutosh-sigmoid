@@ -12,6 +12,8 @@ import xlsxwriter
 outWorkbook=xlsxwriter.Workbook("out1.xlsx")
 
 outsheet=outWorkbook.add_worksheet()
+# Should have given some comments about the and it's solution such as "Solution for Problem Statement1 and connecting the database"
+# from line 36-50 can be shorted using pandas dataframe "df=pd.DataFrame(cur.fetchall()) df=df.to_excel('out1.xlsx',header=["empno","ename","manager"],index=false)
 class employees:
    def employ_manager(self):
 
@@ -23,12 +25,10 @@ class employees:
 
 
     try:
-
+ 
      conn=psycopg2.connect(database="postgres",user="postgres",password="Hello@123")
      cur=conn.cursor()
      cur.execute("SELECT e.empno ,e.ename, m .ename manager FROM emp e LEFT  JOIN emp m   ON m.empno = e.mgr")
-
-
 
 
 
