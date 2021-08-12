@@ -4,7 +4,8 @@ import xlsxwriter
 outWorkbook=xlsxwriter.Workbook("out2.xlsx")
 
 outsheet=outWorkbook.add_worksheet()
-
+# Should have given some comments about the and it's solution such as "Solution for Problem Statement2 and connecting the database"
+# from line 18-31 can be shorted using pandas dataframe "df=pd.DataFrame(cur.fetchall()) df=df.to_excel('out2.xlsx',header=["ename","dname","empno","Total_compensation","Months_spents"],index=false)
 class compensation:
   def total_compensation(self):
 
